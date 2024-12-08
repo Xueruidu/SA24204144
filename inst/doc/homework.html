@@ -12,7 +12,7 @@
 
 <meta name="author" content="Xuerui Du" />
 
-<meta name="date" content="2024-12-08" />
+<meta name="date" content="2024-12-09" />
 
 <title>Summary of Homework</title>
 
@@ -340,7 +340,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Summary of Homework</h1>
 <h4 class="author">Xuerui Du</h4>
-<h4 class="date">2024-12-08</h4>
+<h4 class="date">2024-12-09</h4>
 
 
 
@@ -919,7 +919,7 @@ time.</p>
 <span id="cb56-18"><a href="#cb56-18" tabindex="-1"></a>}</span>
 <span id="cb56-19"><a href="#cb56-19" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">mean</span>(time1),<span class="fu">mean</span>(time2),<span class="fu">mean</span>(time4),<span class="fu">mean</span>(time6),<span class="fu">mean</span>(time8))</span>
 <span id="cb56-20"><a href="#cb56-20" tabindex="-1"></a>time</span></code></pre></div>
-<pre><code>## [1] 0.0104 0.0258 0.0521 0.0805 0.1057</code></pre>
+<pre><code>## [1] 0.0123 0.0238 0.0508 0.0776 0.1018</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -957,10 +957,10 @@ time.</p>
 ## 
 ## Coefficients:
 ## (Intercept)         true  
-##   1.546e-03    1.171e-07</code></pre>
+##   2.458e-03    1.115e-07</code></pre>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" tabindex="-1"></a><span class="fu">plot</span>(true,time)</span>
 <span id="cb60-2"><a href="#cb60-2" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">coef</span>(<span class="fu">lm</span>(time<span class="sc">~</span>true))[<span class="dv">1</span>],<span class="fu">coef</span>(<span class="fu">lm</span>(time<span class="sc">~</span>true))[<span class="dv">2</span>],<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img role="img" src="data:image/png;base64,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" /><!-- --></p>
+<p><img role="img" src="data:image/png;base64,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" /><!-- --></p>
 </div>
 </div>
 <div id="homework-2024.09.30" class="section level2">
@@ -3321,8 +3321,8 @@ sampling functions implemented in R and C++ are highly consistent.</p>
 <span id="cb216-5"><a href="#cb216-5" tabindex="-1"></a>)</span>
 <span id="cb216-6"><a href="#cb216-6" tabindex="-1"></a><span class="fu">summary</span>(ts)[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">6</span>)]</span></code></pre></div>
 <pre><code>##     expr       lq   median       uq
-## 1 gibbsR 41853.95 43654.75 45763.85
-## 2 gibbsC   551.45   675.15   726.85</code></pre>
+## 1 gibbsR 41756.65 43495.95 45486.75
+## 2 gibbsC   556.20   693.45   730.95</code></pre>
 <p>The median runtime of <code>gibbsR</code> is 42,223.45 ns, which is
 significantly higher than the 560.90 ns of <code>gibbsC</code>. This
 means the C++ implementation of Gibbs sampling is approximately 75 times

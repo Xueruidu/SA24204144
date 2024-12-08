@@ -1,11 +1,11 @@
-\name{SA24204144-package}
-\alias{SA24204144-package}
+\name{SA24204144}
+\alias{SA24204144}
 \docType{package}
 \title{
-  This package provides several functions for benchmarking R and Rcpp.
+  This package provides several functions for etwork analysis .
 }
 \description{
-  R and Rcpp versions of gibbs sampler and vaac function are provided in this package (\code{gibbsR} and \code{vaccR} versus \code{gibbsC} and \code{vaccC})
+  R and Rcpp versions of function are provided in this package (\code{graph_plot} and \code{SVR_test} and \code{network_balance} and \code{degree_centrality_cpp} and \code{degree_centrality_cpp})
 }
 \author{
 Xuerui Du
