@@ -1,0 +1,19 @@
+Package: SA24204144
+Type: Package
+Title: Example functions for 'Statistical Computing' course
+Version: 1.0
+Date: 2024-12-02
+Author: Xuerui Du
+Maintainer: Xuerui Du <laxiaod@mail.ustc.edu.cn>
+Description: Several R and Rcpp function are included in this package for illustration. 
+License: GPL (>= 2)
+Imports: Rcpp, microbenchmark, igraph
+LinkingTo: Rcpp
+RoxygenNote: 7.3.2
+Encoding: UTF-8
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
+LazyData: true
+URL: http://github.com/Xueruidu/SA24204144
+BugReports: http://github.com/Xueruidu/SA24204144/issues
+
