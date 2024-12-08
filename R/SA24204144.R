@@ -38,8 +38,15 @@ NULL
 #' @return A network plot showing the relationships between nodes.
 #' @examples
 #' \dontrun{
-#'     # Example matrix
-#'     adj_matrix <- matrix(c(0, 1, -1, 1, 0, 0, -1, 0, 0), nrow = 3)
+#'     # Generate a random 10x10 correlation matrix
+#'     set.seed(123) # For reproducibility
+#'     random_data <- matrix(rnorm(100), nrow = 10) # Random data with 10 variables
+#'     corr_matrix <- cor(random_data) # Compute correlation matrix
+#'     
+#'     # Ensure the diagonal elements are 0 for a graph adjacency matrix
+#'     adj_matrix <- corr_matrix
+#'     
+#'     # Visualize the graph using graph_plot
 #'     graph_plot(adj_matrix)
 #' }
 #' @export
@@ -76,9 +83,14 @@ graph_plot <- function(matrix){
 #'         - `triangle_ratios`: The proportion of each triangle type and overall network balance.
 #' @examples
 #' \dontrun{
-#'     adj_matrix <- matrix(c(0, 1, -1, 1, 0, 0, -1, 0, 0), nrow = 3)
-#'     result <- network_balance(adj_matrix)
-#'     print(result)
+#'     # Generate a random 10x10 correlation matrix
+#'     set.seed(123) # For reproducibility
+#'     random_data <- matrix(rnorm(100), nrow = 10) # Random data with 10 variables
+#'     corr_matrix <- cor(random_data) # Compute correlation matrix
+#'     
+#'     # Ensure the diagonal elements are 0 for a graph adjacency matrix
+#'     adj_matrix <- corr_matrix
+#'     print(network_balance(adj_matrix))
 #' }
 #' @export
 network_balance <- function(matrix){
@@ -166,9 +178,14 @@ network_balance <- function(matrix){
 #'
 #' @examples
 #' \dontrun{
-#'     adj_matrix <- matrix(c(0, 1, -1, 1, 0, 0, -1, 0, 0), nrow = 3)
-#'     result <- SVR_test(adj_matrix)
-#'     print(result)
+#'     # Generate a random 10x10 correlation matrix
+#'     set.seed(123) # For reproducibility
+#'     random_data <- matrix(rnorm(100), nrow = 10) # Random data with 10 variables
+#'     corr_matrix <- cor(random_data) # Compute correlation matrix
+#'     
+#'     # Ensure the diagonal elements are 0 for a graph adjacency matrix
+#'     adj_matrix <- corr_matrix
+#'     print(SVR_test(adj_matrix))
 #' }
 #' @export
 

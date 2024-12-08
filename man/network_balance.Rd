@@ -21,8 +21,13 @@ This function calculates the balance of a network based on the number of
 }
 \examples{
 \dontrun{
-    adj_matrix <- matrix(c(0, 1, -1, 1, 0, 0, -1, 0, 0), nrow = 3)
-    result <- network_balance(adj_matrix)
-    print(result)
+    # Generate a random 10x10 correlation matrix
+    set.seed(123) # For reproducibility
+    random_data <- matrix(rnorm(100), nrow = 10) # Random data with 10 variables
+    corr_matrix <- cor(random_data) # Compute correlation matrix
+    
+    # Ensure the diagonal elements are 0 for a graph adjacency matrix
+    adj_matrix <- corr_matrix
+    print(network_balance(adj_matrix))
 }
 }

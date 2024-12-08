@@ -19,8 +19,15 @@ This function plots a network graph from an adjacency matrix,
 }
 \examples{
 \dontrun{
-    # Example matrix
-    adj_matrix <- matrix(c(0, 1, -1, 1, 0, 0, -1, 0, 0), nrow = 3)
+    # Generate a random 10x10 correlation matrix
+    set.seed(123) # For reproducibility
+    random_data <- matrix(rnorm(100), nrow = 10) # Random data with 10 variables
+    corr_matrix <- cor(random_data) # Compute correlation matrix
+    
+    # Ensure the diagonal elements are 0 for a graph adjacency matrix
+    adj_matrix <- corr_matrix
+    
+    # Visualize the graph using graph_plot
     graph_plot(adj_matrix)
 }
 }

@@ -26,7 +26,7 @@ This function calculates the degree centrality of each node in a network
                            1, 1, 0, 1, 1,
                            0, 1, 1, 0, 1,
                            0, 0, 1, 1, 0), nrow = 5, byrow = TRUE)
-    centrality_scores <- degree_centrality(A)
+    centrality_scores <- degree_centrality_cpp(A)
     print(centrality_scores)
 }
 }

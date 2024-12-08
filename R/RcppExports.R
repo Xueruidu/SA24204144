@@ -9,8 +9,12 @@
 #' @return A numeric vector containing the betweenness centrality scores for each node.
 #' @examples
 #' \dontrun{
-#'     A <- matrix(c(0, 1, -1, 1, 0, 0, -1, 0, 0), nrow = 3)
-#'     centrality_scores <- betweenness_centrality(A)
+#'     A <- matrix(c(0, 1, 1, 0, 0,
+#'                            1, 0, 1, 1, 0,
+#'                            1, 1, 0, 1, 1,
+#'                            0, 1, 1, 0, 1,
+#'                            0, 0, 1, 1, 0), nrow = 5, byrow = TRUE)
+#'     centrality_scores <- betweenness_centrality_cpp(A)
 #'     print(centrality_scores)
 #' }
 #' @export
@@ -33,7 +37,7 @@ betweenness_centrality_cpp <- function(A) {
 #'                            1, 1, 0, 1, 1,
 #'                            0, 1, 1, 0, 1,
 #'                            0, 0, 1, 1, 0), nrow = 5, byrow = TRUE)
-#'     centrality_scores <- degree_centrality(A)
+#'     centrality_scores <- degree_centrality_cpp(A)
 #'     print(centrality_scores)
 #' }
 #' @export

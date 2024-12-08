@@ -7,11 +7,11 @@ Author: Xuerui Du
 Maintainer: Xuerui Du <laxiaod@mail.ustc.edu.cn>
 Description: Several R and Rcpp function are included in this package for illustration. 
 License: GPL (>= 2)
-Imports: Rcpp, igraph, stats
+Imports: Rcpp, igraph, stats, microbenchmark
 LinkingTo: Rcpp
 RoxygenNote: 7.3.2
 Encoding: UTF-8
-Suggests: knitr, rmarkdown, microbenchmark, lpSolve, ggplot2, mvtnorm, boot, bootstrap, DAAG, coda, pracma
+Suggests: knitr, rmarkdown, lpSolve, ggplot2, mvtnorm, boot, bootstrap, DAAG, coda, pracma
 VignetteBuilder: knitr
 LazyData: true
 URL: http://github.com/Xueruidu/SA24204144

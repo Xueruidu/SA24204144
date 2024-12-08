@@ -19,8 +19,12 @@ This function calculates the betweenness centrality of each node in a network
 }
 \examples{
 \dontrun{
-    A <- matrix(c(0, 1, -1, 1, 0, 0, -1, 0, 0), nrow = 3)
-    centrality_scores <- betweenness_centrality(A)
+    A <- matrix(c(0, 1, 1, 0, 0,
+                           1, 0, 1, 1, 0,
+                           1, 1, 0, 1, 1,
+                           0, 1, 1, 0, 1,
+                           0, 0, 1, 1, 0), nrow = 5, byrow = TRUE)
+    centrality_scores <- betweenness_centrality_cpp(A)
     print(centrality_scores)
 }
 }
