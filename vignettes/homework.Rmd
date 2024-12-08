@@ -56,7 +56,10 @@ $$
 The following is the plot of the standard normal probability density function.
 
 
+
+
 ## Homework-2024.09.14
+
 
 
 ### Question
@@ -111,7 +114,7 @@ b. Obtain $X=F_X^{-1}(U)$.
 Here, the values of $\sigma$ are set to $\{ 1,10,50,100,1000 \}$, and the sample size is $1000$.
 
 
-```{r,eval=FALSE}
+```{r}
 invF <- function(u,sigma){
   x <- sqrt(  -2*sigma^2 * log(1-u) )
   return(x)
@@ -124,7 +127,7 @@ X <- rep(0,N)
 
 
 when $\sigma=1$
-```{r,eval=FALSE}
+```{r}
 sigma <- 1
 X <- invF(U,sigma)
 hist(X,probability = TRUE,main = expression(frac(x, sigma^2) * e^{-x^2 / (2 * sigma^2)},sigma==1),breaks = 10,ylim=c(0,0.65))
@@ -133,7 +136,7 @@ lines(y,y/sigma^2*exp(-y^2/(2*sigma^2)),col="red")
 ```
 
 when $\sigma=10$
-```{r,eval=FALSE}
+```{r}
 sigma <- 10
 X <- invF(U,sigma)
 hist(X,probability = TRUE,main = expression(frac(x, sigma^2) * e^{-x^2 / (2 * sigma^2)},sigma==10),breaks = 10,ylim=c(0,0.07))
@@ -142,7 +145,7 @@ lines(y,y/sigma^2*exp(-y^2/(2*sigma^2)),col="red")
 ```
 
 when $\sigma=50$
-```{r,eval=FALSE}
+```{r}
 sigma <- 50
 X <- invF(U,sigma)
 hist(X,probability = TRUE,main = expression(frac(x, sigma^2) * e^{-x^2 / (2 * sigma^2)},sigma==50),breaks = 10,ylim=c(0,0.013))
@@ -151,7 +154,7 @@ lines(y,y/sigma^2*exp(-y^2/(2*sigma^2)),col="red")
 ```
 
 when $\sigma=1000$
-```{r,eval=FALSE}
+```{r}
 sigma <- 1000
 X <- invF(U,sigma)
 hist(X,probability = TRUE,main = expression(frac(x, sigma^2) * e^{-x^2 / (2 * sigma^2)},sigma=1000),breaks = 10,ylim=c(0,0.0006))
@@ -175,7 +178,7 @@ f(x;p_1,p_2) &= f(x|under \, model1)p(model1) + f(x|under \, model2)p(model2) \\
 \end{aligned}
 $$
 when $p_1=0.75$
-```{r,eval=FALSE}
+```{r}
 N <- 1000
 set.seed(1234)
 X1 <- rnorm(N,0,1)
@@ -194,7 +197,7 @@ lines(y,mixf(y,p1),col="red")
 ```
 
 when $p_1 \in \{ 0,0.125,0.25,0.375,0.50,0.625,0.75,0.875,1 \}$
-```{r,eval=FALSE}
+```{r}
 for(p1 in (0:8)/8){
   p2 <- 1-p1
   set.seed(123)
@@ -231,7 +234,7 @@ $$
 
 We assume $Y_i\sim Gamma(\alpha,\beta)$,
 
-```{r,eval=FALSE}
+```{r}
 total <- 1000
 t <- 10
 lambda <- 1
@@ -250,7 +253,7 @@ print(paste0("the empirical values:E[X(10)]=",mean(X10),",Var(x(10))=",var(X10),
 ```
 
 
-```{r,eval=FALSE}
+```{r}
 total <- 1000
 t <- 10
 lambda <- 1
@@ -269,7 +272,7 @@ print(paste0("the empirical values:E[X(10)]=",mean(X10),",Var(x(10))=",var(X10),
 ```
 
 
-```{r,eval=FALSE}
+```{r}
 total <- 1000
 t <- 10
 lambda <- 1
@@ -288,7 +291,7 @@ print(paste0("the empirical values:E[X(10)]=",mean(X10),",Var(x(10))=",var(X10),
 ```
 
 
-```{r,eval=FALSE}
+```{r}
 total <- 1000
 t <- 10
 lambda <- 3
@@ -307,7 +310,7 @@ print(paste0("the empirical values:E[X(10)]=",mean(X10),",Var(x(10))=",var(X10),
 ```
 
 
-```{r,eval=FALSE}
+```{r}
 total <- 1000
 t <- 10
 lambda <- 3
@@ -326,7 +329,7 @@ print(paste0("the empirical values:E[X(10)]=",mean(X10),",Var(x(10))=",var(X10),
 ```
 
 
-```{r,eval=FALSE}
+```{r}
 total <- 1000
 t <- 10
 lambda <- 3
@@ -348,8 +351,8 @@ We can know that the empirical values of the simulation are close to the theoret
 
 
 
-
 ## Homework-2024.09.23
+
 
 
 ### Question
@@ -408,7 +411,7 @@ $$
 $$
 where $U \sim U(0,x)$,$g(u)=xf(u)$.
 
-```{r,eval=FALSE}
+```{r}
 N <- 1000
 alpha <- 3
 beta <- 3
@@ -420,7 +423,7 @@ Fhat <- function(x){
 }
 ```
 
-```{r,eval=FALSE}
+```{r}
 for(x in (1:9)/10){
   print(paste0("when x = ",x,",the real F(x):",pbeta(x,alpha,beta),",the estimated F(x):",Fhat(x),"."))
 }
@@ -456,7 +459,7 @@ a. Generate a variable $U \sim U(0,1)$,$U^{'}=1-U$;
 
 b. Obtain $X=F_X^{-1}(U)$,$X^{'}=F_X^{-1}(U^{'})$.
 
-```{r,eval=FALSE}
+```{r}
 invF <- function(u,sigma){
   x <- sqrt(  -2*sigma^2 * log(1-u) )
   return(x)
@@ -469,7 +472,7 @@ X2 <- rep(0,N/2)
 X <- rep(0,N)
 ```
 
-```{r,eval=FALSE}
+```{r}
 sigma <- 1
 X1 <- invF(U[1:(N/2)],sigma)
 X2 <- invF(U[(N/2+1):N],sigma)
@@ -491,7 +494,7 @@ $$
 f_2(x)=\lambda e^{-\lambda(x-1)},x>1.
 $$
 
-```{r,eval=FALSE}
+```{r}
 g <- function(x){
   result <- x^2/sqrt(2*pi) * exp(-x^2/2)
   return(result)
@@ -506,7 +509,7 @@ f2 <- function(x,lambda){
 ```
 
 
-```{r,eval=FALSE}
+```{r}
 N <- 10000
 set.seed(1234)
 X <- abs(rnorm(N,0,1)) + 1
@@ -526,7 +529,7 @@ $\int_1^{\infty} g(x)dx$|0.4003865|0.4006047
 4. 
 
 The quick sort function is as follows: 
-```{r,eval=FALSE}
+```{r}
 quick_sort<-function(x){
   num<-length(x)
   if(num==0||num==1){return(x)
@@ -540,7 +543,7 @@ quick_sort<-function(x){
 ```
 
 We set $n=10^4,2\times 10^4,4\times 10^4,6\times 10^4,8\times 10^4$, and calculate computation time. 
-```{r,eval=FALSE}
+```{r}
 all <- 100
 time1 <- numeric(all)
 time2 <- numeric(all)
@@ -569,7 +572,7 @@ time|0.0133|0.0236|0.0639|0.0848|0.1195
 
 
 The regression results between $a_n$ and $t_n := n \log(n)$ are as follows: 
-```{r,eval=FALSE}
+```{r}
 n <- c(1,2,4,6,8)*1e4
 true <- n*log(n)
 lm(time~true)
@@ -578,7 +581,11 @@ abline(coef(lm(time~true))[1],coef(lm(time~true))[2],col="red")
 ```
 
 
+
+
+
 ## Homework-2024.09.30
+
 
 
 ### Question
@@ -608,7 +615,7 @@ $$
 
 
 
-```{r,eval=FALSE}
+```{r}
 rm(list=ls())
 n <- 1000
 N <- 1000
@@ -626,7 +633,7 @@ y <- seq(-0.3,0.3,0.01)
 lines(y,1/(sqrt(2*pi*6/n))*exp(-y^2/(2*6/n)),col="red")
 ```
 
-```{r,eval=FALSE}
+```{r}
 q <- c(0.025,0.05,0.95,0.975)
 quantile(skew,probs=q)
 qnorm(q,0,sqrt(6/n))
@@ -639,7 +646,7 @@ $$
 where $f$ is the density of the sampled distribution.
 
 Since the distribution $f$ is unknown, we use the normal distribution to approximate the estimate of $f(x_q)$. Therefore, we first need to estimate the sample mean and variance of the skewness data. 
-```{r,eval=FALSE}
+```{r}
 smean <- mean(skew)
 svar <- 1/(N-1)*sum((skew-mean(skew))^2)
 fq <- dnorm(quantile(skew,probs=c(0.025,0.05,0.95,0.975)),mean = smean,sd=sqrt(svar))
@@ -658,12 +665,13 @@ Estimate variance|4.010600e-05|2.567798e-05|2.817547e-05|4.191878e-05
 2. We first generate a random variable following a bivariate normal distribution, considering the case where the alternative hypothesis is true.
 
 Clear memory before calling the function.
-```{r,eval=FALSE}
+```{r}
 rm(list = ls())
 ```
 
 
-```{r,eval=FALSE}
+```{r}
+library(mvtnorm)
 n <- 1000
 mean <- c(0,0)
 alpha <- 0.05
@@ -688,7 +696,7 @@ for(i in 1:N){
 ```
 
 The power of the three tests is as follows:
-```{r,eval=FALSE}
+```{r}
 sum(reject1)/N ##power
 sum(reject2)/N
 sum(reject3)/N
@@ -704,12 +712,12 @@ It can be seen that the power of the Pearson test is higher than that of the Spe
 Consider the bivariate exponential distribution, implemented through a custom function, while also considering the case where the alternative hypothesis is true.
 
 Clear memory before calling the function.
-```{r,eval=FALSE}
+```{r}
 rm(list = ls())
 ```
 
 Custom function to generate bivariate exponential distribution。
-```{r,eval=FALSE}
+```{r}
 generate_bivariate_exponential <- function(n, lambda1, lambda2, correlation) {
   u1 <- rexp(n, rate = lambda1)  # first variable
   u2 <- rexp(n, rate = lambda2)  # second variable
@@ -722,7 +730,7 @@ generate_bivariate_exponential <- function(n, lambda1, lambda2, correlation) {
 ```
 
 
-```{r,eval=FALSE}
+```{r}
 n <- 1000
 alpha <- 0.05
 lambda1 <- 1
@@ -745,7 +753,7 @@ for(i in 1:N){
 ```
 
 The power of the three tests is as follows:
-```{r,eval=FALSE}
+```{r}
 sum(reject1)/N ##power
 sum(reject2)/N
 sum(reject3)/N
@@ -812,6 +820,7 @@ Thus, we reject the null hypothesis, concluding that there is a significant diff
 ## Homework-2024.10.14
 
 
+
 ### Question
 
 1. Of $N=1000$ hypotheses, $950$ are null and $50$ are alternative. The p-value under any null hypothesis is uniformly distributed(use runif), and the p-value under any alternative hypothesis follows the beta distribution with parameter $0.1$ and $1$ (use rbeta). Obtain Bonferroni adjusted p-values and B-H adjusted
@@ -844,7 +853,7 @@ Assume that the times between failures follow an exponential model Exp($\lambda$
 
 
 
-### Solution
+### Answer
 
 
 1.
@@ -861,7 +870,7 @@ $$
 \text{TPR} = \frac{\text{Number of True Positives}}{\text{Total Number of Alternative Hypotheses}}
 $$
 
-```{r,eval=FALSE}
+```{r}
 N <- 1000
 n_null <- 950
 n_alt <- N - n_null
@@ -910,7 +919,8 @@ It can be seen that the Bonferroni correction is very effective in controlling T
 2. 
 
 From Exercise 4, we know that the MLE of \(\lambda\) is \(\hat{\lambda} = 1/\bar{X}\).
-```{r,eval=FALSE}
+```{r}
+library(boot)
 aircondit_times <- c(3, 5, 7, 18, 43, 85, 91, 98, 100, 130, 230, 487)
 sample_mean <- mean(aircondit_times)
 lambda_mle <- 1 / sample_mean
@@ -932,7 +942,7 @@ paste0("Standard error estimate:", lambda_se, "\n")
 
 3. 
 
-```{r,eval=FALSE}
+```{r}
 mu_boot <- function(data, indices) {
   sample_data <- data[indices]
   return(mean(sample_data))  
@@ -963,7 +973,7 @@ In this case, the widths of the four confidence intervals do not differ signific
 
 4.
 
-```{r,eval=FALSE}
+```{r}
 lambda_true <- 2
 sizes <- c(5, 10, 20)
 B <- 1000  
@@ -1010,7 +1020,6 @@ It can be seen that as the sample size increases, the bootstrap bias and standar
 ## Homework-2024.10.21
 
 
-
 ### Question
 
 1. Refer to Exercise 7.7. Obtain the jackknife estimates of bias and standard error of $\hat{\theta}$, 
@@ -1026,13 +1035,15 @@ It can be seen that as the sample size increases, the bootstrap bias and standar
 
 
 
-### Solution
+### Answer
 
 1.
 
 The Jackknife method is used to estimate the bias and standard error of a statistic. Each observation can be removed once to calculate the \(\hat{\lambda}\) value for each sample, which allows the calculation of \(\hat{\theta}\) values, and then the overall bias and standard error can be computed. 
-```{r,eval=FALSE}
+```{r}
 rm(list=ls())
+
+library(bootstrap)
 scor
 
 
@@ -1066,9 +1077,9 @@ $$
 Y=\beta_0 + \beta_1 X + \beta_2 X^2 + \beta_3 X^3 + \epsilon.
 $$
 
-```{r,eval=FALSE}
+```{r}
 rm(list=ls())
-attach(ironslag)
+library(DAAG); attach(ironslag)
 a <- seq(10, 40, .1)
 L1 <- lm(magnetic ~ chemical)
 plot(chemical, magnetic, main="Linear", pch=16)
@@ -1089,7 +1100,7 @@ yhat4 <- L4$coef[1] + L4$coef[2] * a + L4$coef[3] * a^2 + L4$coef[4] * a^3
 lines(a, yhat4, lwd=2)
 ```
 
-```{r,eval=FALSE}
+```{r}
 n <- length(magnetic)
 e1 <- e2 <- e3 <- e4 <- numeric(n)
 for(k in 1:n) {
@@ -1115,7 +1126,7 @@ c(mean(e1^2), mean(e2^2), mean(e3^2), mean(e4^2))
 
 By comparing the prediction errors of each model, we can see that the cross-validation procedure still selects model 2.
 
-```{r,eval=FALSE}
+```{r}
 L2
 ```
 
@@ -1127,7 +1138,7 @@ L2
 
 
 
-```{r,eval=FALSE}
+```{r}
 p1 <- 1
 R2_1 <- summary(J1)$r.squared
 adj_R2_1 <- 1 - (1 - R2_1) * (n - 1) / (n - p1 - 1)
@@ -1149,7 +1160,7 @@ c(adj_R2_1,adj_R2_2,adj_R2_3,adj_R2_4)
 
 According to the maximum adjusted \(R^2\), model 4 is selected. 
 
-```{r,eval=FALSE}
+```{r}
 L4
 ```
 
@@ -1160,7 +1171,7 @@ L4
 The Cramer-von Mises test is used to compare whether two distributions are the same. This is implemented through a permutation test, which randomly samples from the combined samples to obtain multiple sets of data and computes the Cramer-von Mises statistic for each group, comparing it to the observed statistic to estimate the significance level. 
 
 
-```{r,eval=FALSE}
+```{r}
 rm(list=ls())
 attach(chickwts)
 x <- sort(as.vector(weight[feed == "soybean"]))
@@ -1208,7 +1219,7 @@ X_{H_1} \sim \mathcal{N}(0,1) \quad Y_{H_1} \sim X_{H_1} + \mathcal{N}(0,0.5^2).
 
 The function `spearman_permutation_test` defined here computes the Spearman rank correlation coefficient and the p-value of the permutation test.
 
-```{r,eval=FALSE}
+```{r}
 rm(list=ls())
 set.seed(1234)
 n <- 100
@@ -1246,7 +1257,12 @@ cat("cor.test p-value:", cor_test_h1$p.value, "\n")
 ```
 
 
+
+
+
 ## Homework-2024.10.28
+
+
 
 
 ### Question
@@ -1288,14 +1304,17 @@ It can be shown (see e.g. [23]) that for fixed $a$,$b$,$n$, the conditional dist
 \end{itemize}
 
 
-### Solution
+### Answer
 
-
+```{r}
+library(ggplot2)
+library(coda)
+```
 
 
 1.
 
-```{r,eval=FALSE}
+```{r}
 rm(list=ls())
 metropolis_hastings <- function(num_samples) {
   samples <- numeric(num_samples)
@@ -1340,7 +1359,7 @@ standard Cauchy|-3.077684|-1.376382|-0.7265425|-0.3249197|0|0.3249197|0.7265425|
 
 2.
 
-```{r,eval=FALSE}
+```{r}
 rm(list=ls())
 gibbs_sampler <- function(n, a, b, num_samples) {
   samples <- data.frame(iteration = 1:num_samples, x = numeric(num_samples), y = numeric(num_samples))
@@ -1374,13 +1393,13 @@ The plot displays the chains for $X$ and $Y$.
 
 3.
 
-```{r,eval=FALSE}
+```{r}
 rm(list=ls())
 ```
 
 \textbf{For problem1}
 
-```{r,eval=FALSE}
+```{r}
 metropolis_hastings <- function(num_samples) {
   samples <- numeric(num_samples)
   current <- rnorm(1)
@@ -1409,7 +1428,7 @@ It can be seen that the obtained Gelman-Rubin statistic and the upper limit of t
 
 \textbf{For problem2}
 
-```{r,eval=FALSE}
+```{r}
 gibbs_sampler <- function(n, a, b, num_samples) {
   samples <- data.frame(x = numeric(num_samples), y = numeric(num_samples))
   x <- 0 
@@ -1492,6 +1511,7 @@ This completes the proof.
 
 
 
+
 ### Question
 
 1. 
@@ -1534,13 +1554,13 @@ $$
 Use the E-M algorithm to estimate $\lambda$, compare your result with the observed data MLE (note: $Y_i$ follows a mixture distribution). 
 
 
-### Solution
+### Answer
 
 1.
 
 
 (a).
-```{r,eval=FALSE}
+```{r}
 rm(list=ls())
 compute_k <- function(k, a, d) {
   norm_a <- sqrt(sum(a^2)) 
@@ -1556,7 +1576,7 @@ We define the function \text{compute_k} to compute the $k$th term in the given s
 
 
 (b).
-```{r,eval=FALSE}
+```{r}
 compute_sum <- function(a, d, max = 150) {
   s <- 0
   for (k in 0:max) {
@@ -1571,7 +1591,7 @@ The \text{compute_sum} function is used to calculate the infinite sum, approxima
 
 
 (c).
-```{r,eval=FALSE}
+```{r}
 a <- c(1, 2)
 d <- 2
 result <- compute_sum(a, d)
@@ -1592,8 +1612,9 @@ $$
 S_k(a) = P \left( t(k) > \sqrt{\frac{a^2 k}{k + 1 - a^2}} \right).
 $$
 
-```{r,eval=FALSE}
+```{r}
 rm(list=ls())
+library(stats)
 intersection <- function(k) {
   curve_1 <- function(a) 1 - pt( sqrt((a^2 * (k - 1)) / (k - a^2)) , df = k - 1 )
   curve_2 <- function(a) 1 - pt( sqrt((a^2 * k) / (k + 1 - a^2)) , df = k )
@@ -1627,7 +1648,8 @@ Here, since the root-finding interval is the open interval $(0,\sqrt{k})$，when
 
 Now, consider Problem 11.5:
 
-```{r,eval=FALSE}
+```{r}
+library(pracma)
 integrate_part <- function(c, k) {
   integral <- integral(function(u) (1 + (u^2) / k)^(-(k+1)/2), 0, c)
   return(integral)
@@ -1657,7 +1679,7 @@ print(points_1)
 ```
 
 In 11.5, we set \text{k=c(4:25,100)}, since larger values of $k$ result in infinite values when calculating $\Gamma(\cdot)$. As we can observe, the solutions obtained are approximately the same as the results in 11.4.
-```{r,eval=FALSE}
+```{r}
 error <- points_1 - points[1:length(points_1)]
 print(error)
 ```
@@ -1712,7 +1734,7 @@ $$
 
 Set the initial value \( \lambda^{(0)} = 1 \), then iteratively compute until \( \lambda \) converges. 
 
-```{r,eval=FALSE}
+```{r}
 rm(list=ls())
 T <- c(0.54, 0.48, 0.33, 0.43, 1.00, 1.00, 0.91, 1.00, 0.21, 0.85)
 tau <- 1
@@ -1747,7 +1769,11 @@ In this analysis, the difference between the EM algorithm estimate and the maxim
 
 
 
+
+
 ## Homewrok-2024.11.11
+
+
 
 
 ### Question
@@ -1773,7 +1799,7 @@ $$
 (1).
 
 Use both for loops and \text{lapply()} to fit linear models to the \text{mtcars} using the formulas stored in this list:
-```{r,eval=FALSE}
+```{r}
 formulas <- list(
   mpg ~ disp,
   mpg ~ I(1 / disp),
@@ -1786,7 +1812,7 @@ formulas <- list(
 (2).
 
 Fit the model \text{mpg ~ disp} to each of the bootstrap replicates of \text{mtcars} in the list below by using a for loop and \text{lapply()}. Can you do it without an anonymous function?
-```{r,eval=FALSE}
+```{r}
 bootstraps <- lapply(1:10, function(i) {
   rows <- sample(1:nrow(mtcars), rep = TRUE)
   mtcars[rows, ]
@@ -1797,7 +1823,7 @@ bootstraps <- lapply(1:10, function(i) {
 (3).
 
 For each model in the previous two exercises, extract $R^2$ using the function below.
-```{r,eval=FALSE}
+```{r}
 rsq <- function(mod) summary(mod)$r.squared
 ```
 
@@ -1807,7 +1833,7 @@ rsq <- function(mod) summary(mod)$r.squared
 (1).
 
 The following code simulates the performance of a t-test for non-normal data. Use \text{sapply()} and an anonymous function to extract the p-value from every trial.
-```{r,eval=FALSE}
+```{r}
 trials <- replicate(
 100,
 t.test(rpois(10, 10), rpois(7, 10)),
@@ -1840,8 +1866,9 @@ Can you make a faster version of \text{table()} for the case of an input of two 
 ### Answer
 
 1.
-```{r,eval=FALSE}
+```{r}
 rm(list=ls())
+library(lpSolve)
 objective <- c(4, 2, 9)
 constraints <- matrix(c(2, 1, 1, 1, -1, 3), nrow = 2, byrow = TRUE)
 direction <- c("<=", "<=")
@@ -1856,7 +1883,7 @@ result$objval
 2.
 
 (1).
-```{r,eval=FALSE}
+```{r}
 rm(list=ls())
 formulas <- list(
   mpg ~ disp,
@@ -1872,7 +1899,7 @@ lapply(formulas, function(f) summary(lm(f, data = mtcars)))
 
 
 (2).
-```{r,eval=FALSE}
+```{r}
 bootstraps <- lapply(1:10, function(i) {
   rows <- sample(1:nrow(mtcars), rep = TRUE)
   mtcars[rows, ]
@@ -1886,7 +1913,7 @@ lapply(bootstraps, function(bootstrap) summary(lm(mpg ~ disp, data = bootstrap))
 
 
 (3).
-```{r,eval=FALSE}
+```{r}
 rsq <- function(mod) summary(mod)$r.squared
 for (f in formulas) {
   mod <- lm(f, data = mtcars)
@@ -1906,7 +1933,7 @@ print(lapply(bootstraps, function(bootstrap) rsq(lm(mpg ~ disp, data = bootstrap
 3.
 
 (1).
-```{r,eval=FALSE}
+```{r}
 rm(list = ls())
 trials <- replicate(
   100,
@@ -1922,7 +1949,7 @@ p_values
 
 
 (2).
-```{r,eval=FALSE}
+```{r}
 rm(list = ls())
 parallel_lapply <- function(X, FUN, ...) {
   result <- Map(FUN, X, ...)
@@ -1938,7 +1965,7 @@ parallel_lapply(inputs, sum)
 4.
 
 (1).
-```{r,eval=FALSE}
+```{r}
 rm(list = ls())
 better_chisq <- function(x, y) {
   observed <- table(x, y)
@@ -1952,7 +1979,7 @@ better_chisq(x, y)
 
 
 (2).
-```{r,eval=FALSE}
+```{r}
 rm(list = ls())
 better_table <- function(x, y) {
   table_result <- table(x, y)
@@ -1968,7 +1995,10 @@ chisq_stat
 ```
 
 
+
+
 ## Homework-2024.11.18
+
 
 
 
@@ -1987,7 +2017,7 @@ It can be shown (see e.g. [23]) that for fixed $a$,$b$,$n$, the conditional dist
 
 Clear Variable Space. 
 
-```{r,eval=FALSE}
+```{r}
 rm(list=ls())
 ```
 
@@ -1999,6 +2029,52 @@ rm(list=ls())
 The specific `Rcpp` functions are as follows.  
 
 ```{r,eval=FALSE}
+#include <Rcpp.h>
+using namespace Rcpp;
+
+// [[Rcpp::export]]
+DataFrame gibbs_sampler_C(int n, double a, double b, int num_samples) {
+  NumericVector x(num_samples);
+  NumericVector y(num_samples);
+  
+  int current_x = 0;
+  
+  for (int i = 0; i < num_samples; i++) {
+    y[i] = R::rbeta(current_x + a, n - current_x + b);
+    current_x = R::rbinom(n, y[i]);
+    x[i] = current_x;
+  }
+  return DataFrame::create(Named("iteration") = seq(1, num_samples),
+                           Named("x") = x,
+                           Named("y") = y);
+}
+
+
+```
+
+
+
+
+2.
+
+```{r}
+
+gibbs_sampler_R <- function(n, a, b, num_samples) {
+  samples <- data.frame(iteration = 1:num_samples, x = numeric(num_samples), y = numeric(num_samples))
+  x <- 0 
+  for (i in 1:num_samples) {
+    y <- rbeta(1, x + a, n - x + b)
+    x <- rbinom(1, n, y)
+    samples[i, "x"] <- x
+    samples[i, "y"] <- y
+  }
+  return(samples)
+}
+
+library(Rcpp)
+#dir_cpp <- '../Rcpp/'
+#sourceCpp(paste0(dir_cpp,"Gibbs_sampler_C.cpp")) 
+
 cppFunction('
   DataFrame gibbs_sampler_C(int n, double a, double b, int num_samples) {
   NumericVector x(num_samples);
@@ -2016,30 +2092,6 @@ cppFunction('
                            Named("y") = y);
 }
 ')
-```
-
-
-
-
-2.
-
-```{r,eval=FALSE}
-
-gibbs_sampler_R <- function(n, a, b, num_samples) {
-  samples <- data.frame(iteration = 1:num_samples, x = numeric(num_samples), y = numeric(num_samples))
-  x <- 0 
-  for (i in 1:num_samples) {
-    y <- rbeta(1, x + a, n - x + b)
-    x <- rbinom(1, n, y)
-    samples[i, "x"] <- x
-    samples[i, "y"] <- y
-  }
-  return(samples)
-}
-
-#library(Rcpp)
-#dir_cpp <- '../Rcpp/'
-#sourceCpp(paste0(dir_cpp,"Gibbs_sampler_C.cpp")) 
 
 n <- 10  
 a <- 1   
@@ -2052,6 +2104,7 @@ samples_C <- gibbs_sampler_C(n, a, b, num_samples)
 samples_long_R <- reshape2::melt(samples_R, id.vars = "iteration")
 samples_long_C <- reshape2::melt(samples_C, id.vars = "iteration")
 
+library(ggplot2)
 par(mfrow = c(1, 2))
 qqplot(samples_R$x, samples_C$x, main = "QQ Plot of x", xlab = "R", ylab = "C", pch = 8, col = "red", cex = 0.8)
 abline(0, 1, col = "blue", lwd = 1.8)
@@ -2070,7 +2123,8 @@ Overall, the random number distributions generated by the Gibbs sampling functio
 
 3.
 
-```{r,eval=FALSE}
+```{r}
+library(microbenchmark)
 ts <- microbenchmark(
   gibbsR = gibbs_sampler_R(n, a, b, num_samples),
   gibbsC = gibbs_sampler_C(n, a, b, num_samples)
@@ -2087,7 +2141,6 @@ The median runtime of `gibbsR` is 42,223.45 ns, which is significantly higher th
 
 
 The `Rcpp` Gibbs sampling function significantly outperforms the R implementation in terms of runtime efficiency. For tasks requiring a large number of iterations (e.g., Markov Chain Monte Carlo) or dealing with large datasets, C++ is the better choice. R’s loops and complex computations are slower. However, the sample distributions generated by both methods are similar, indicating consistent implementation logic. Therefore, it is recommended to use the `Rcpp` implementation in scenarios with high-performance requirements while leveraging R’s ease of use for initial testing and debugging.
-
 
 
 

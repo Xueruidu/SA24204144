@@ -1,7 +1,7 @@
 #' @import microbenchmark
 #' @import igraph
+#' @importFrom stats pnorm pchisq
 #' @importFrom Rcpp evalCpp
-#' @importFrom stats rnorm rgamma pchisq pnorm
 #' @useDynLib SA24204144
 NULL
 
